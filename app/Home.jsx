@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import ImageSlider from '../components/ImageSlider'
+import BodyParts from '../components/BodyParts'
 
 export default function Home() {
   return (
@@ -30,15 +31,18 @@ export default function Home() {
             style={{height: hp(6), width: hp(6)}}
             className="rounded-full"
             />
-            <View className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300">
+            <View className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300"
+            style={{height: hp(5.5), width: wp(5.5)}}>
                 <Icon name="notifications" size={30} color="gray" />
             </View>
         </View>
     </View>
     <View className="flex-1">
         <ImageSlider/>
-        </View>
-
+    </View>
+    <View className="flex-1">
+        <BodyParts/>
+    </View>
     </SafeAreaView>
   )
 }
