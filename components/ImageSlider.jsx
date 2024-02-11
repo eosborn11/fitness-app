@@ -1,4 +1,4 @@
-import { Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import Carousel, {ParallaxImage} from 'react-native-snap-carousel'
 import {sliderImages} from '../constants/index'
@@ -13,7 +13,7 @@ export default function ImageSlider() {
     autoplay={true}
     renderItem={ItemCard}
     hasParallaxImages={true}
-    sliderWidth={wp('100')-70}
+    sliderWidth={wp(100)}
     firstItem={1}
     autoplayInterval={4000}
     itemWidth={wp('100')-70}
@@ -21,8 +21,16 @@ export default function ImageSlider() {
    />
   )
 }
-const ItemCard = (item, index) => {
+const ItemCard = ({item, index}, parallaxProps) => {
   return(
-  <Text>Slide </Text>
+  <View style={{width: wp(100)-70, height: hp(25)}}>
+    <ParallaxImage
+      source={item}
+      containerStyle={{flex: 1, borderRadius: 30}}
+      style={{resizeMode: 'contain'}}
+      parallaxFactor={1}
+      {...parallaxProps}
+    />
+  </View>
   )
 }
