@@ -8,7 +8,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 
 export default function BodyParts() {
   return (
-    <View>
+    <View className="mx-4">
       <Text style={{fontSize:hp(3)}} className=" font-semibold text-neutral-700" >
       Exercises
       </Text>
@@ -16,7 +16,7 @@ export default function BodyParts() {
       <FlatList
         data={bodyParts}
         numColumns={2}
-        keyExtractor={(item) => item.name}
+        keyExtractor={item => item.name}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 50, paddingTop: 20}}
         columnWrapperStyle={{justifyContent: 'space-between'}}
@@ -27,14 +27,14 @@ export default function BodyParts() {
 }
 const BodyPartCard = ({item, index}) => {
   return (
-    <View className="mx-4">  
+    <View>  
       <TouchableOpacity
-        style={{width: wp(44), height: hp(52)}}
+        style={{width: wp(44), height: wp(52)}}
         className="flex justify-end p-4 mb-4">
           <Image
             source={item.image}
             resizeMode="cover"
-            style={{width: wp(44), height: hp(52)}}
+            style={{width: wp(44), height: wp(52)}}
             className="rounded-[35px] absolute"
           />
           <LinearGradient
@@ -42,7 +42,7 @@ const BodyPartCard = ({item, index}) => {
             style={{width: wp(44), height: hp(15)}}
             start={{x: 0.5, y: 0}}
             end={{x: 0.5, y: 1}}
-            className="absolute bottom-0 rounded-b-[35px]"
+            className="rounded-b-[35px] absolute bottom-0"
           />
         </TouchableOpacity>
     </View>

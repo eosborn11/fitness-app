@@ -32,12 +32,12 @@ export default function Home() {
             className="rounded-full"
             />
             <View className="bg-neutral-200 rounded-full flex justify-center items-center border-[3px] border-neutral-300"
-            style={{height: hp(5.5), width: wp(5.5)}}>
+            style={{height: hp(5.5), width: hp(5.5)}}>
                 <Icon name="notifications" size={30} color="gray" />
             </View>
         </View>
     </View>
-    <View className="flex-1">
+    <View >
         <ImageSlider/>
     </View>
     <View className="flex-1">
