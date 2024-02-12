@@ -4,9 +4,11 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import {bodyParts} from '../constants/index' 
 import { TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import {  useRouter } from 'expo-router'
 
 
 export default function BodyParts() {
+  const router = useRouter()  
   return (
     <View className="mx-4">
       <Text style={{fontSize:hp(3)}} className=" font-semibold text-neutral-700" >
@@ -20,15 +22,19 @@ export default function BodyParts() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 50, paddingTop: 20}}
         columnWrapperStyle={{justifyContent: 'space-between'}}
-        renderItem={({item, index}) => <BodyPartCard item={item} index={index} />}
+        renderItem={({item, index}) => 
+        <BodyPartCard item={item} index={index} 
+        router={router}
+        />}
       />
     </View>
   )
 }
-const BodyPartCard = ({item, index}) => {
+const BodyPartCard = ({item, router, index}) => {
   return (
     <View>  
       <TouchableOpacity
+        onPress={() => router.push({pathname: '/exercises', params: item})}
         style={{width: wp(44), height: wp(52)}}
         className="flex justify-end p-4 mb-4">
           <Image
